@@ -1,3 +1,4 @@
+CREATE  DATABASE Group_23;
 CREATE TABLE Students(
     student_id int primary key,
     name varchar(100),
@@ -16,7 +17,36 @@ VALUES
 (768, 'Rita Akariza', 'r.akariza@alustudent.com', 003, '2026-01-05'),
 (876, 'Felix Mwaniki', 'f.mwaniki@alustudent', 004, '2026-01-05')
 
-UPDATE Students SET classroom_id = 003 WHERE student_id = 234 #Felix
-SELECT name, email FROM Students WHERE student_id = 876
-DELETE FROM Students WHERE student_id = 876
+UPDATE Students SET classroom_id = 003 WHERE student_id = 234; #Felix
+SELECT name, email FROM Students WHERE student_id = 876;
+DELETE FROM Students WHERE student_id = 876;
  
+
+create table classroom(
+    classroom_id int primary key,
+    room_number varchar(10),
+    building varchar(50),
+    capacity int
+);
+
+
+insert into classroom(classroom_id,room_number,building,capacity)
+values
+(001,03,'South East',50),
+(002,04,'Ilinios Chamber',45),
+(003,05,'Social Commons',25),
+(004,06,'Berlin corner',76),
+(005,07,'Frederick rooms',37),
+(006,08,'Leadership center',22)
+
+UPDATE classroom
+SET capacity = 30
+WHERE classroom_id = 006;
+
+DELETE FROM classroom
+WHERE classroom_id = 005;
+
+SELECT *
+FROM classroom
+WHERE capacity > 40;
+
