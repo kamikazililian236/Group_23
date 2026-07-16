@@ -21,12 +21,12 @@ CREATE TABLE Student_Activities(
 );
 insert into Extra_Curricular_Activities(activity_id, activity_name, faculty_id)
 values
-(1, 'Coding Club', 1),
-(2, 'Football Club', 4),
+(1, 'U-love club', 1),
+(2, 'Alfajiri  club', 4),
 (3, 'Debate Society', 3),
-(4, 'Music Band', 2),
-(5, 'Drama Club', 5),
-(6, 'Temporary Club', 1);
+(4, 'Noise makers', 2),
+(5, 'Claude  builders club', 5),
+(6, 'Catholic sociaety', 1);
 insert into Student_Courses(student_id, course_id)
 values
 (123, 1),
