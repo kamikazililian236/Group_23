@@ -15,3 +15,5 @@ VALUES
 (656, 'Gabriel Agabo', 'g.agabo@alustudent.com', 002, '2026-01-06'),
 (768, 'Rita Akariza', 'r.akariza@alustudent.com', 003, '2026-01-05'),
 (876, 'Felix Mwaniki', 'f.mwaniki@alustudent', 004, '2026-01-05')
+
+UPDATE Students SET classroom_id = '003' WHERE student_id = 234 #Felix
