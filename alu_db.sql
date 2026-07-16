@@ -43,10 +43,6 @@ UPDATE classroom
 SET capacity = 30
 WHERE classroom_id = 006;
 
-DELETE FROM classroom
-WHERE classroom_id = 005;
-
-SELECT *
-FROM classroom
-WHERE capacity > 40;
+DELETE FROM classroom WHERE classroom_id = 005;
+SELECT * FROM classroom WHERE capacity > 40;
 
