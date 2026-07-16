@@ -6,6 +6,7 @@ create table classroom(
     capacity int
 );
 
+
 insert into classroom(classroom_id,room_number,building,capacity)
 values
 (001,03,'South East',50),
@@ -14,3 +15,14 @@ values
 (004,06,'Berlin corner',76),
 (005,07,'Frederick rooms',37),
 (006,08,'Leadership center',22)
+
+UPDATE classroom
+SET capacity = 30
+WHERE classroom_id = 006;
+
+DELETE FROM classroom
+WHERE classroom_id = 005;
+
+SELECT *
+FROM classroom
+WHERE capacity > 40;
