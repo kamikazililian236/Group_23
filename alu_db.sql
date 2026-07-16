@@ -17,3 +17,6 @@ VALUES
 (876, 'Felix Mwaniki', 'f.mwaniki@alustudent', 004, '2026-01-05')
 
 UPDATE Students SET classroom_id = 003 WHERE student_id = 234 #Felix
+SELECT name, email FROM Students WHERE student_id = 876
+DELETE FROM Students WHERE student_id = 876
+ 
