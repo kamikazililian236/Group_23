@@ -22,10 +22,9 @@ UPDATE Courses
 SET credits = 5
 WHERE course_id = 3;
 
-DELETE FROM Courses
-WHERE course_id = 6;
+DELETE FROM Courses WHERE course_id = 6;
 
-SELECT * FROM Courses
-WHERE credits = 4;
-SELECT * FROM Courses
-WHERE credits >= 4;
+SELECT * FROM Courses WHERE credits = 4;
+SELECT * FROM Courses WHERE credits >= 4;
+  DROP TABLE  IF  EXISTS Courses;
+  
