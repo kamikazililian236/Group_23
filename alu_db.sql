@@ -156,6 +156,10 @@ SELECT * FROM Student_Activities    WHERE activity_id = 2;
 
 
 
+SELECT * FROM Classroom;
+SELECT * FROM Students;
+SELECT * FROM Faculty;
+SELECT * FROM Courses;
 SELECT * FROM Extra_Curricular_Activities;
+SELECT * FROM Student_Courses;
 SELECT * FROM Student_Activities;
-SELECT *FROM Student_Courses
