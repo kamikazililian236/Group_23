@@ -163,3 +163,9 @@ SELECT * FROM Courses;
 SELECT * FROM Extra_Curricular_Activities;
 SELECT * FROM Student_Courses;
 SELECT * FROM Student_Activities;
+  
+
+
+SELECT Courses.course_name, COUNT(Student_Courses.student_id) AS total_students
+FROM Student_Courses JOIN Courses ON Student_Courses.course_id = Courses.course_id
+GROUP BY Courses.course_name;
