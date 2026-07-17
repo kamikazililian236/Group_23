@@ -16,12 +16,12 @@ values
 (005,07,'Frederick rooms',37),
 (006,08,'Leadership center',22)
 
-UPDATE classroom
+UPDATE Classroom
 SET capacity = 30
 WHERE classroom_id = 006;
 
-DELETE FROM classroom WHERE classroom_id = 005;
-SELECT * FROM classroom WHERE capacity > 40;
+DELETE FROM Classroom WHERE classroom_id = 005;
+SELECT * FROM Classroom WHERE capacity > 40;
 
 CREATE TABLE Students(
     student_id int primary key,
@@ -44,7 +44,7 @@ VALUES
 UPDATE Students SET classroom_id = 003 WHERE student_id = 234; #Felix
 SELECT name, email FROM Students WHERE student_id = 876;
 DELETE FROM Students WHERE student_id = 876;
- CREATE TABLE Faculty (
+CREATE TABLE Faculty (
     faculty_id INT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100),
@@ -61,8 +61,7 @@ VALUES
 (6, 'Sampson S. Daniels', 'sdaniels@alueducation.com', 'Software Engineering'),
 (7, 'Teacher to be', '----@alueducation.com', 'unknown');
  select * from Faculty;
-UPDATE Faculty 
-SET department = 'Web Infrastructure' WHERE faculty_id = 4;
+UPDATE Faculty SET department = 'Web Infrastructure' WHERE faculty_id = 4;
 DELETE FROM Faculty WHERE faculty_id = 7;
 SELECT * FROM Faculty WHERE department = 'Software Engineering';
 
