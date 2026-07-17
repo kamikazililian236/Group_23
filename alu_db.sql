@@ -154,17 +154,47 @@ DELETE FROM Extra_Curricular_Activities WHERE activity_id = 6;
 SELECT * FROM Student_Activities    WHERE activity_id = 2;
 
 
+/* 
+GROUP TASK: NORMALIZATION CHECK (GROUP 23)
+After reviewing , we confirm it meets Third Normal Form (3NF). 
+Each entity occupies its own dedicated table , Classroom holds room info, 
+Faculty holds instructor info, and Students holds learner records. No 
+column outside of its home table duplicates this data. Foreign keys such 
+as faculty_id and classroom_id act as  pointers instead of 
+copying full names or building details into every row that needs them. 
+This guarantees that a single edit in the source table propagates 
+everywhere automatically.
+The many-to-many connections between students and courses, as well as 
+students and activities, are handled through two bridge tables: 
+Student_Courses and Student_Activities. Both use a pair of foreign keys 
+as their combined primary key, which naturally blocks any identical 
+pairing from being recorded twice while keeping the base tables free 
+of repeated information.
+One observationis that the provided schema diagram specifies a 
+single 'name' field for Students and Faculty rather than separating it 
+into first and last name. Strictly speaking, a combined name field is 
+not fully atomic under 1NF rules, but we followed the diagram as given 
+since splitting it would not impact any of our table relationships.
+*/
 
 
-SELECT * FROM Classroom;
-SELECT * FROM Students;
-SELECT * FROM Faculty;
-SELECT * FROM Courses;
-SELECT * FROM Extra_Curricular_Activities;
-SELECT * FROM Student_Courses;
-SELECT * FROM Student_Activities;
-  
-
+-- Join 1(Student course details)
+SELECT CONCAT(Students.name, ' takes ', Courses.course_name, ' with ', Faculty.name, ' in ', Classroom.building) AS sentence
+FROM Students
+JOIN Student_Courses ON Students.student_id = Student_Courses.student_id
+JOIN Courses ON Student_Courses.course_id = Courses.course_id
+JOIN Faculty ON Courses.faculty_id = Faculty.faculty_id
+JOIN Classroom ON Courses.classroom_id = Classroom.classroom_id;
+-- Join 2 (Student activity details)
+SELECT CONCAT(Students.name, ' is in ', Extra_Curricular_Activities.activity_name, ' with ', Faculty.name) AS sentence
+FROM Students
+JOIN Student_Activities ON Students.student_id = Student_Activities.student_id
+JOIN Extra_Curricular_Activities ON Student_Activities.activity_id = Extra_Curricular_Activities.activity_id
+JOIN Faculty ON Extra_Curricular_Activities.faculty_advisor_id = Faculty.faculty_id;
+-- Join 3(Student classroom assignment)
+SELECT CONCAT(Students.name, ' is assigned to ', Classroom.building) AS sentence
+FROM Students
+JOIN Classroom ON Students.classroom_id = Classroom.classroom_id;
 
 SELECT Courses.course_name, COUNT(Student_Courses.student_id) AS total_students
 FROM Student_Courses JOIN Courses ON Student_Courses.course_id = Courses.course_id
