@@ -26,7 +26,7 @@ values
 (3, 'Debate Society', 3),
 (4, 'Noise makers', 2),
 (5, 'Claude  builders club', 5),
-(6, 'Catholic sociaety', 1);
+(6, 'Catholic society', 1);
 insert into Student_Courses(student_id, course_id)
 values
 (123, 1),
@@ -38,7 +38,7 @@ values
 (656, 1),
 (656, 5),
 (768, 5),
-(876, 2);
+(768, 2);
 insert into Student_Activities(student_id, activity_id)
 values
 (123, 2),
@@ -46,11 +46,8 @@ values
 (542, 3),
 (656, 2),
 (768, 4),
-(876, 1);
+(768, 1);
 UPDATE Extra_Curricular_Activities
-SET activity_name = 'Web Development Club'
-WHERE activity_id = 1;
-DELETE FROM Extra_Curricular_Activities
-WHERE activity_id = 6;
-SELECT * FROM Student_Activities
-WHERE activity_id = 2;
+SET activity_name = 'Web Development Club' WHERE activity_id = 1;
+DELETE FROM Extra_Curricular_Activities WHERE activity_id = 6;
+SELECT * FROM Student_Activities    WHERE activity_id = 2;
