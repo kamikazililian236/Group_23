@@ -95,3 +95,56 @@ DELETE FROM Courses WHERE course_id = 6;
 
 SELECT * FROM Courses WHERE credits = 4;
 SELECT * FROM Courses WHERE credits >= 4;
+
+CREATE TABLE Extra_Curricular_Activities(
+    activity_id int primary key,
+    activity_name varchar(100),
+    faculty_id int,
+    foreign key (faculty_id) references Faculty(faculty_id)
+);
+CREATE TABLE Student_Courses(
+    student_id int,
+    course_id int,
+    primary key (student_id, course_id),
+    foreign key (student_id) references Students(student_id),
+    foreign key (course_id) references Courses(course_id)
+);
+CREATE TABLE Student_Activities(
+    student_id int,
+    activity_id int,
+    primary key (student_id, activity_id),
+    foreign key (student_id) references Students(student_id),
+    foreign key (activity_id) references Extra_Curricular_Activities(activity_id)
+);
+insert into Extra_Curricular_Activities(activity_id, activity_name, faculty_id)
+values
+(1, 'U-love club', 1),
+(2, 'Alfajiri  club', 4),
+(3, 'Debate Society', 3),
+(4, 'Noise makers', 2),
+(5, 'Claude  builders club', 5),
+(6, 'Catholic society', 1);
+insert into Student_Courses(student_id, course_id)
+values
+(123, 1),
+(123, 2),
+(234, 2),
+(234, 3),
+(542, 2),
+(542, 4),
+(656, 1),
+(656, 5),
+(768, 5),
+(768, 2);
+insert into Student_Activities(student_id, activity_id)
+values
+(123, 2),
+(234, 1),
+(542, 3),
+(656, 2),
+(768, 4),
+(768, 1);
+UPDATE Extra_Curricular_Activities
+SET activity_name = 'Web Development Club' WHERE activity_id = 1;
+DELETE FROM Extra_Curricular_Activities WHERE activity_id = 6;
+SELECT * FROM Student_Activities    WHERE activity_id = 2;
