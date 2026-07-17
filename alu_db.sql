@@ -17,12 +17,11 @@ values
 (006,08,'Leadership center',22)
 
 UPDATE Classroom
-SET capacity = 30
-WHERE classroom_id = 006;
+SET capacity = 30  WHERE classroom_id = 006;
 
 DELETE FROM Classroom WHERE classroom_id = 005;
 SELECT * FROM Classroom WHERE capacity > 40;
-
+SELECT * FROM Classroom;
 CREATE TABLE Students(
     student_id int primary key,
     name varchar(100),
@@ -44,6 +43,7 @@ VALUES
 UPDATE Students SET classroom_id = 003 WHERE student_id = 234; #Felix
 SELECT name, email FROM Students WHERE student_id = 876;
 DELETE FROM Students WHERE student_id = 876;
+select * from Students;
 CREATE TABLE Faculty (
     faculty_id INT PRIMARY KEY,
     name VARCHAR(100),
@@ -64,6 +64,7 @@ VALUES
 UPDATE Faculty SET department = 'Web Infrastructure' WHERE faculty_id = 4;
 DELETE FROM Faculty WHERE faculty_id = 7;
 SELECT * FROM Faculty WHERE department = 'Software Engineering';
+ select * from Faculty;
 
 
 
@@ -86,6 +87,7 @@ VALUES
 (4, 'Frontend Web Development', 4, 6, 3),
 (5, 'Self Leadership and Dynamics', 3, 3,2),
 (6, 'Temporary Course', 2, 2, 1);
+ select * from Courses;
 
 UPDATE Courses
 SET credits = 5
@@ -99,8 +101,10 @@ SELECT * FROM Courses WHERE credits >= 4;
 CREATE TABLE Extra_Curricular_Activities(
     activity_id int primary key,
     activity_name varchar(100),
-    faculty_id int,
-    foreign key (faculty_id) references Faculty(faculty_id)
+    category varchar(50),
+    faculty_advisor_id int,
+    foreign key (faculty_advisor_id) references Faculty(faculty_id)
+
 );
 CREATE TABLE Student_Courses(
     student_id int,
@@ -116,14 +120,14 @@ CREATE TABLE Student_Activities(
     foreign key (student_id) references Students(student_id),
     foreign key (activity_id) references Extra_Curricular_Activities(activity_id)
 );
-insert into Extra_Curricular_Activities(activity_id, activity_name, faculty_id)
+insert into Extra_Curricular_Activities(activity_id, activity_name, category, faculty_advisor_id)
 values
-(1, 'U-love club', 1),
-(2, 'Alfajiri  club', 4),
-(3, 'Debate Society', 3),
-(4, 'Noise makers', 2),
-(5, 'Claude  builders club', 5),
-(6, 'Catholic society', 1);
+(1, 'U-love club', 'Social', 1),
+(2, 'Alfajiri  club', 'Social', 4),
+(3, 'Debate Society', 'Academic', 3),
+(4, 'Noise makers', 'Music', 2),
+(5, 'Claude  builders club', 'Academic', 5),
+(6, 'Catholic society', 'Religious', 1);
 insert into Student_Courses(student_id, course_id)
 values
 (123, 1),
@@ -145,6 +149,13 @@ values
 (768, 4),
 (768, 1);
 UPDATE Extra_Curricular_Activities
-SET activity_name = 'Web Development Club' WHERE activity_id = 1;
+SET activity_name = ' ALU SPORTS  Club' WHERE activity_id = 1;
 DELETE FROM Extra_Curricular_Activities WHERE activity_id = 6;
 SELECT * FROM Student_Activities    WHERE activity_id = 2;
+
+
+
+
+SELECT * FROM Extra_Curricular_Activities;
+SELECT * FROM Student_Activities;
+SELECT *FROM Student_Courses
