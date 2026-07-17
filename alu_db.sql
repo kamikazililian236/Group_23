@@ -6,16 +6,16 @@ CREATE TABLE Courses (
     faculty_id INT,
     classroom_id INT,
     FOREIGN KEY (faculty_id) REFERENCES Faculty(faculty_id),
-    FOREIGN KEY (classroom_id) REFERENCES classroom(classroom_id)
+    FOREIGN KEY (classroom_id) REFERENCES Classroom(classroom_id)
 );
 
 INSERT INTO Courses (course_id, course_name, credits, faculty_id, classroom_id)
 VALUES
 (1, 'Linux Introduction', 3, 4, 1),
 (2, 'Python Programming', 4, 1, 2),
-(3, 'Web Infrastructure', 4, 5, 3),
-(4, 'Frontend Web Development', 4, 6, 2),
-(5, 'Self Leadership and Dynamics', 3, 3, 5),
+(3, 'Web Infrastructure', 4,5,3),
+(4, 'Frontend Web Development', 4, 6, 3),
+(5, 'Self Leadership and Dynamics', 3, 3,2),
 (6, 'Temporary Course', 2, 2, 1);
 
 UPDATE Courses
