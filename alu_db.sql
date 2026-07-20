@@ -14,7 +14,7 @@ values
 (003,05,'Social Commons',25),
 (004,06,'Berlin corner',76),
 (005,07,'Frederick rooms',37),
-(006,08,'Leadership center',22)
+(006,08,'Leadership center',22);
 
 UPDATE Classroom
 SET capacity = 30  WHERE classroom_id = 006;
